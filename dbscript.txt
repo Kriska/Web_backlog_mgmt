@@ -1,0 +1,49 @@
+
+
+CREATE TABLE Users(id int NOT NULL AUTO_INCREMENT,
+userName varchar(20),
+password varchar(20),
+role varchar(2),
+PRIMARY KEY(id) );
+
+CREATE TABLE Tasks(id int NOT NULL AUTO_INCREMENT,
+title varchar(20),
+description varchar(250),
+creatorId int,
+assigneeId int,
+logHours int,
+dueDate date,
+done int DEFAULT 0,
+PRIMARY KEY(id),
+FOREIGN KEY(creatorId) REFERENCES Users(id)
+FOREIGN KEY(assigneeId) REFERENCES Users(id));
+
+
+#insert rows
+
+INSERT INTO Users(id, userName, password, role) VALUES(1,'penda', 'pass', 'D');
+INSERT INTO Users(id, userName, password, role) VALUES(2,'pijo', 'pass', 'PO');
+
+
+#insert tasks
+
+INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate)
+VALUES(1, 'hash passwords', 'Hash user passwords before storing into database', 2, 1, 0, '2018-01-30');
+
+ 
+
+INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate)
+VALUES(2, 'user management tab', 'Create tab for user management for admins', 2, 1, 0, '2018-02-10');
+
+ 
+
+INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate)
+VALUES(3, 'user creation', 'Introduce functionality for creating users', 2, 1, 1, '2018-02-20');
+
+ 
+
+INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate)
+VALUES(4, 'introduce more roles', 'Hash user passwords before storing into database', 2, 1, 2, '2018-02-30');
+
+INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate)
+VALUES(5, 'documentation', 'document user managment functionalities', 2, 1, 0, '2018-03-01');
