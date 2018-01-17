@@ -12,7 +12,7 @@ description varchar(250),
 creatorId int,
 assigneeId int,
 logHours int,
-dueDate date,
+dueDate timestamp DEFAULT CURRENT_TIMESTAMP,
 done int DEFAULT 0,
 PRIMARY KEY(id),
 FOREIGN KEY(creatorId) REFERENCES Users(id)
