@@ -1,0 +1,91 @@
+body {
+	margin: auto;
+	width: 30%;
+	padding: 10px;
+}
+.welcome {
+	color: #4d7358;
+	font-family: Verdana;
+	font-size: 40px;
+	text-align: center;
+}
+#title {
+	color: #9ed670;
+	font-weight: bold;
+}
+.header {
+	margin-top: 10%;
+	padding: 10px;
+	font-family: Verdana;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+.form {
+	background-color: #f5f5f0;
+	border-style: solid;
+	border-width: thin;
+	border-color: #b0afaf;
+	padding: 15px;
+	text-align: center;
+	font-size: 20px;
+	font-family: Verdana;
+}
+input {
+	color: #b0afaf;
+	width: 80%;
+}
+	
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #9ed670;
+    color: white;
+	margin: 14px 0px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type=submit]:hover {
+    background-color: #4d7358;
+}
+input .styled-select {
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+}
+
+
+.light-green    { background-color: #9ed670; }
+.dark-green     { background-color: #4d7358; }
+.red    		{ background-color: #d64d4d; }
+.orange		    { background-color: #e39e54; }
+.yellow		    { background-color: #ffeead; }
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}

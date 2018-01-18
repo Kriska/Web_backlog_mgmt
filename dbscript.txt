@@ -1,3 +1,4 @@
+#db backlog_mgmgt
 
 
 CREATE TABLE Users(id int NOT NULL AUTO_INCREMENT,
@@ -5,6 +6,11 @@ userName varchar(20),
 password varchar(20),
 role varchar(2),
 PRIMARY KEY(id) );
+
+CREATE TABLE Logins(id int NOT NULL AUTO_INCREMENT,
+userId int,
+PRIMARY KEY(id),
+FOREIGN KEY(userId) REFERENCES Users(id));
 
 CREATE TABLE Tasks(id int NOT NULL AUTO_INCREMENT,
 title varchar(20),
