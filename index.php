@@ -7,9 +7,35 @@
 <title> Backlog Management Dashboard </title>
 </head>
 <body>
-<div class="welcome"
-	<h1>Добре дошли в <span id="title"> Backlog Management </span> </h1>
+<div class="welcome"><h4>
+		<?php
+		include 'session.php';
+		if(isset($userName)){
+			echo 'Здравей, <span id="title">'.$userName.'</span>';
+		}else {
+			header("HTTP/1.1 401 Unauthorized");
+			exit;
+		}
+		?></h4>
 </div>
+
+<div class="topnav yellow">
+
+	<a class="active" href="index.php">Начало</a>
+	<a href="profile.php">Профил</a>
+	<?php
+		if($userRole == 'PO') 
+			echo '<a href="create.php">Създай задача</a>';
+		else
+			echo '<a href="tasks.php">Моите задачи</a>';
+	?>
+	<a href="logout.php">Изход</a>
+  <form class="search" type="post" method="post" action="results.php"  accept-charset="UTF-8"> 
+	<input id="search" type="text" placeholder="Търси..." name="search">
+	<input type="submit" value="Търси">
+	</form>
+</div>
+
 
 </body>
 </html>

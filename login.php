@@ -6,33 +6,35 @@
 <script type="text/javascript" src="javascript/global.js"></script>
 <title> Backlog Management Вход </title>
 </head>
-<body>
-<div class="welcome"
-	<h1>Добре дошли в <span id="title"> Backlog Management </span> </h1>
+<body class="log">
+<div class="welcome">
+	<h4>Добре дошли в <span id="title"> Backlog Management </span> </h4>
 </div>
-<div class="header"
+<div class="header">
 	<h1>Вход: </h1>
-</div>
 	<div class="yellow form" >
 		<form type="post" method="post" action="login.php"  accept-charset="UTF-8"> 
-			<p> Потребителско име: </p><input type="text" name="userName" id="userName"><br>
-			<p> Парола: </p><input type="password" name="password" id="password"><br>
+			<p> Потребителско име: </p><input type="text" name="userName"><br>
+			<p> Парола: </p><input type="password" name="password"><br>
 			<input type="submit" value="Вход">
 		</form>
 	</div>
+</div>
 		<p id="noRowInDB" > </p>
 <?php	
 	if(isset($_POST['userName']) && isset($_POST['password'])){
 		
 		include 'request.php';
 		$connection = new DbConnection();
-		$foundUser = $connection->call_db();
+		$foundUser = $connection->call_db_login();
 		$newURL = "index.php";
 		
 		if($foundUser != null) {
+			session_start();
+			session_save_path(["session.php"]);
+			$_SESSION['user'] = $foundUser[0];
 			header('Location: '.$newURL);
-			//exit();
-			//echo '<script type="text/javascript">','clear();','</script>';
+			exit();
 		} else {
 			echo '<script type="text/javascript">','nothingInDb();','</script>';
 		}

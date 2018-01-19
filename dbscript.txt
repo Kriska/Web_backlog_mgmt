@@ -1,25 +1,23 @@
-#db backlog_mgmgt
+﻿#db backlog_mgmgt
 
 
 CREATE TABLE Users(id int NOT NULL AUTO_INCREMENT,
 userName varchar(20),
 password varchar(20),
 role varchar(2),
+email varchar(50),
 PRIMARY KEY(id) );
-
-CREATE TABLE Logins(id int NOT NULL AUTO_INCREMENT,
-userId int,
-PRIMARY KEY(id),
-FOREIGN KEY(userId) REFERENCES Users(id));
 
 CREATE TABLE Tasks(id int NOT NULL AUTO_INCREMENT,
 title varchar(20),
 description varchar(250),
 creatorId int,
 assigneeId int,
-logHours int,
+logHours int DEFAULT 0,
 dueDate timestamp DEFAULT CURRENT_TIMESTAMP,
 done int DEFAULT 0,
+priority varchar(2),
+
 PRIMARY KEY(id),
 FOREIGN KEY(creatorId) REFERENCES Users(id)
 FOREIGN KEY(assigneeId) REFERENCES Users(id));
@@ -27,8 +25,8 @@ FOREIGN KEY(assigneeId) REFERENCES Users(id));
 
 #insert rows
 
-INSERT INTO Users(id, userName, password, role) VALUES(1,'penda', 'pass', 'D');
-INSERT INTO Users(id, userName, password, role) VALUES(2,'pijo', 'pass', 'PO');
+INSERT INTO Users(id, userName, password, role, email) VALUES(1,'Пенда', 'pass', 'D','penda@babamarta.com');
+INSERT INTO Users(id, userName, password, role, email) VALUES(2,'Пижо', 'pass', 'PO','pijo@mart.bg');
 
 
 #insert tasks
