@@ -11,7 +11,6 @@ function success(message) {
 function error(message) {
 	var element = document.getElementById("error");
 	unfade(element, message);
-	fade(element);
 }
 function crossDoneTasks(done) {
 	if(done == 1){
@@ -54,9 +53,18 @@ function fade(element) {
 function validateForm() {
 	var title = document.forms["createForm"]["title"].value;
 	var desc = document.forms["createForm"]["desc"].value;
-	var date = document.forms["createForm"]["assignee"].value;
+	var date = document.forms["createForm"]["date"].value;
 	if(title === "" || desc === "" || date === ""){
-		error("Попълнете полетата");
+		error("Попълнете всички полетата!");
+		return false;
+	}
+	if(title > 20 || desc > 250){
+		error("Данните не са валидни!");
+		return false;
+	}
+	var t = date.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+	if(t === null){
+		error("Датана е в неправилен формат");
 		return false;
 	}
 	return true;
