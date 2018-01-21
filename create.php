@@ -34,7 +34,7 @@
 <div class="task">
 	<p  class="light-green" id="created"> </p>
 	<p  class="red" id="error"> </p>
-	<form class="yellow taskCreation" type="post" method="post" action="" accept-charset="UTF-8">
+	<form id="createForm" class="yellow taskCreation" type="post" method="post" action="" onsubmit="return validateForm()" accept-charset="UTF-8">
 	Заглавие: <input id="title" type="text" name="title">
 	<p> Описание:</p><textarea id="desc" name="desc"></textarea><br>
 	Препрати на:<select id="assignee" name="assignee">
@@ -54,17 +54,17 @@
 	</form>
 </div>
 </body>
+
 <?php
 	if(isset($_POST['title']) && isset($_POST['desc']) && isset($_POST['assignee']) && isset($_POST['date']) && isset($_POST['priority'])){
 		include 'request.php';
 		include 'session.php';
 		$creatorId = $userId;
 		$connection = new DbConnection();
-		//$connection->call_db_insert_task_from($creatorId);
+		$connection->call_db_insert_task_from($creatorId);
 		$_POST = array();
 		echo '<script type="text/javascript">','success("Задачата е създадена");','</script>';
 	}
-	else echo '<script type="text/javascript">','error("Попълнете полетата");','</script>';
 ?>
 
 </html>

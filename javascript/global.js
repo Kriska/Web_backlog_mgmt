@@ -50,3 +50,14 @@ function fade(element) {
     }, 100);
 	return;
 }
+
+function validateForm() {
+	var title = document.forms["createForm"]["title"].value;
+	var desc = document.forms["createForm"]["desc"].value;
+	var date = document.forms["createForm"]["assignee"].value;
+	if(title === "" || desc === "" || date === ""){
+		error("Попълнете полетата");
+		return false;
+	}
+	return true;
+}
