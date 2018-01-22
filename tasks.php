@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="css/global.css">
 <meta charset="UTF-8">
 <script type="text/javascript" src="javascript/global.js"></script>
-<title> Backlog Management Dashboard </title>
+<title> Backlog Management User Tasks </title>
 </head>
 	<body>
 		<div class="welcome"><h4>
@@ -23,7 +23,7 @@
 
 			<a href="index.php">Начало</a>
 			<a href="profile.php">Профил</a>
-			<a class="active" chref="tasks.php">Моите задачи</a>
+			<a class="active" href="tasks.php">Моите задачи</a>
 			<a href="logout.php">Изход</a>
 		  <form class="search" type="post" method="post" action="results.php"  accept-charset="UTF-8"> 
 			<input id="search" type="text" placeholder="Търси..." name="search">
@@ -51,9 +51,9 @@
 					 $dueDate = $item['dueDate'];
 					 $done = $item['done'];
 					 $priority = $item['priority'];
-					 if($done == 0) {
+					 if($done == 0 || $done == 1) {
 						 echo  "<tr><td>".$priority.'</td>
-									<td><a id="link" href="tasks.php?task='.$title.'">'.$title."</td>
+									<td><a id="link" href="task.php?task='.$title.'">'.$title."</td>
 									<td>".$desc."</td>
 									<td>".$hours."</td>
 								<td>".$dueDate."</td></tr>";

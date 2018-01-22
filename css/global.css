@@ -74,6 +74,7 @@ input[type=submit]:hover {
 .red    		{ background-color: #d64d4d; }
 .orange		    { background-color: #e39e54; }
 .yellow		    { background-color: #ffeead; }
+.orangeText	    { color: #e39e54; font-weight: bold;}
 
 .topnav {
   overflow: hidden;
@@ -235,6 +236,19 @@ p.info {
 	font-family:Verdana;
 }
 
+.task form.yellow input.complete[type=submit] {
+	width: 200px;
+	height: 50px;
+	background-image: url(images/complete.jpg);
+	background-repeat: no-repeat;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+	text-align: right;
+	color: black;
+	font-family:Verdana;
+}
 
 input.edit {
 	width: 40%;
@@ -303,4 +317,6 @@ background-color: #ffeead;
   background-color: #d64d4d;
   color: white;
 }
+
+
 

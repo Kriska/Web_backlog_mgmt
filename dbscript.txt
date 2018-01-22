@@ -1,5 +1,6 @@
-﻿#db backlog_mgmgt
+﻿CREATE DATABASE backlog_mgmgt;
 
+use backlog_mgmgt;
 
 CREATE TABLE Users(id int NOT NULL AUTO_INCREMENT,
 userName varchar(20),
@@ -14,16 +15,16 @@ description varchar(250),
 creatorId int,
 assigneeId int,
 logHours int DEFAULT 0,
-dueDate timestamp DEFAULT CURRENT_TIMESTAMP,
+dueDate timestamp,
 done int DEFAULT 0,
-priority varchar(2),
+priority varchar(2) DEFAULT 'S',
 
 PRIMARY KEY(id),
 FOREIGN KEY(creatorId) REFERENCES Users(id)
 FOREIGN KEY(assigneeId) REFERENCES Users(id));
 
 
-#insert rows
+#insert users
 
 INSERT INTO Users(id, userName, password, role, email) VALUES(1,'Пенда', 'pass', 'D','penda@babamarta.com');
 INSERT INTO Users(id, userName, password, role, email) VALUES(2,'Пижо', 'pass', 'PO','pijo@mart.bg');
@@ -31,23 +32,23 @@ INSERT INTO Users(id, userName, password, role, email) VALUES(2,'Пижо', 'pas
 
 #insert tasks
 
-INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate)
-VALUES(1, 'hash passwords', 'Hash user passwords before storing into database', 2, 1, 0, '2018-01-30');
+INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate, done, priority)
+VALUES(1, 'hash passwords', 'Hash user passwords before storing into database', 2, 1, 0, '2018-01-30', 1, 'XL');
 
  
 
-INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate)
-VALUES(2, 'user management tab', 'Create tab for user management for admins', 2, 1, 0, '2018-02-10');
+INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate, done, priority)
+VALUES(2, 'user management tab', 'Create tab for user management for admins', 2, 1, 0, '2018-02-10', 0, 'L');
 
  
 
-INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate)
-VALUES(3, 'user creation', 'Introduce functionality for creating users', 2, 1, 1, '2018-02-20');
+INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate, done, priority)
+VALUES(3, 'user creation', 'Introduce functionality for creating users', 2, 1, 1, '2018-02-20',2, 'XL');
 
  
 
-INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate)
-VALUES(4, 'introduce more roles', 'Hash user passwords before storing into database', 2, 1, 2, '2018-02-30');
+INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate, done, priority)
+VALUES(4, 'introduce more roles', 'Hash user passwords before storing into database', 2, 1, 2, '2018-02-30', 0, 'M');
 
-INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate)
-VALUES(5, 'documentation', 'document user managment functionalities', 2, 1, 0, '2018-03-01');
+INSERT INTO Tasks(id, title, description, creatorId, assigneeId, logHours, dueDate, done, priority)
+VALUES(5, 'documentation', 'document user managment functionalities', 2, 1, 0, '2018-03-01',0, 'S');

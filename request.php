@@ -114,8 +114,42 @@
 			return $result;
 			$dbh = null;
 		}
+		
+		public function find_task_by_name($taskName) {
+			$dbh = new PDO("mysql:host=$this->host; dbname=$this->db; charset=utf8", $this->user, $this->pass);
+			
+			$stmt = $dbh->prepare("SELECT description, logHours, dueDate, done, priority from tasks WHERE title = :taskName");
+			$stmt->bindParam(':taskName', $taskName);
+			$stmt->execute();
+			
+			$result = $stmt->fetchAll();
+		
+			return $result;
+			$dbh = null;
+		}
+		
+		public function log_hours_on_task($taskName, $logHours) {
+			$dbh = new PDO("mysql:host=$this->host; dbname=$this->db; charset=utf8", $this->user, $this->pass);
+			
+			$stmt = $dbh->prepare("UPDATE tasks SET logHours = :logHours WHERE title = :taskName");
+			$stmt->bindParam(':taskName', $taskName);
+			$stmt->bindParam(':logHours', $logHours);
+			$stmt->execute();
+			
+			$dbh = null;
+		}
+		
+		
 
-
+		public function complete_task($taskName) {
+			$dbh = new PDO("mysql:host=$this->host; dbname=$this->db; charset=utf8", $this->user, $this->pass);
+			
+			$stmt = $dbh->prepare("UPDATE tasks SET done = 2 WHERE title = :taskName");
+			$stmt->bindParam(':taskName', $taskName);
+			$stmt->execute();
+			
+			$dbh = null;
+		}
 		
 	}
 ?>

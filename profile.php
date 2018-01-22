@@ -4,7 +4,7 @@
 		<link rel="stylesheet" type="text/css" href="css/global.css">
 		<meta charset="UTF-8">
 		<script type="text/javascript" src="javascript/global.js"></script>
-		<title> Backlog Management Task Creation </title>
+		<title> Backlog Management Profile</title>
 	</head>
 <body>
 	<div class="welcome">
@@ -14,7 +14,12 @@
 	<div class="topnav yellow">
 		<a href="index.php">Начало</a>
 		<a class="active" href="profile.php">Профил</a>
-		<a href="create.php">Създай задача </a>
+		<?php
+		if($userRole == 'PO') 
+			echo '<a href="create.php">Създай задача</a>';
+		else
+			echo '<a href="tasks.php">Моите задачи</a>';
+	?>
 		<a href="logout.php">Изход</a>
 		<form class="search" type="post" method="post" action="results.php"  accept-charset="UTF-8"> 
 			<input id="search" type="text" placeholder="Търси..." name="search">

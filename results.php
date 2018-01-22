@@ -62,7 +62,7 @@
 					 $done = $item['done'];
 					 $priority = $item['priority'];
 					 echo  "<tr><td>".$priority.'</td>
-								<td><a id="link" href="tasks.php?task='.$title.'">'.$title."</td>
+								<td><a id="link" href="task.php?task='.$title.'">'.$title."</td>
 								<td>".$desc."</td>
 								<td>".$assignee."</td>
 								<td>".$hours."</td>
