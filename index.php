@@ -39,9 +39,9 @@
 
 		<table id="results">
 			<tr>
-				<th>To Do</th>
-				<th>In Progress</th>
-				<th>Done</th>
+				<th>Нестартирани</th>
+				<th>Започнати</th>
+				<th>Завършени</th>
 			</tr>
 		<?php
 			include_once 'request.php';

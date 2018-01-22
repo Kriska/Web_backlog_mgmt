@@ -12,10 +12,11 @@
 </div>
 <div class="header">
 	<h1>Вход: </h1>
+	<p  class="red" id="error"> </p>
 	<div class="yellow form" >
 		<form type="post" method="post" action="login.php"  accept-charset="UTF-8"> 
-			<p> Потребителско име: </p><input type="text" name="userName"><br>
-			<p> Парола: </p><input type="password" name="password"><br>
+			<p> Потребителско име: </p><input type="text" id="userName" name="userName"><br>
+			<p> Парола: </p><input type="password" id="password" name="password"><br>
 			<input type="submit" value="Вход">
 		</form>
 	</div>
@@ -36,7 +37,7 @@
 			header('Location: '.$newURL);
 			exit();
 		} else {
-			echo '<script type="text/javascript">','nothingInDb();','</script>';
+			echo '<script type="text/javascript">','error("Невалидно потребителското име и/или парола.");','</script>';
 		}
 	}
 ?>
