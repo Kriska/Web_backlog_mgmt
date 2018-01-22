@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="css/global.css">
 <meta charset="UTF-8">
 <script type="text/javascript" src="javascript/global.js"></script>
+	
 <title> Backlog Management Dashboard </title>
 </head>
 <body>
@@ -36,6 +37,43 @@
 	</form>
 </div>
 
-
+		<table id="results">
+			<tr>
+				<th>To Do</th>
+				<th>In Progress</th>
+				<th>Done</th>
+			</tr>
+		<?php
+			include_once 'request.php';
+			include 'session.php';
+			$connection = new DbConnection();
+			$userTasks = $connection->find_dashboard_tasks();
+			foreach($userTasks as &$item) {
+					 $id = $item['id'];
+					 $title = $item['title'];
+					 $desc = $item['description'];
+					 $dueDate = $item['dueDate'];
+					 $done = $item['done'];
+					 $priority = $item['priority'];
+					 if($done == 0) {
+						 echo  '<tr><td ondrop="drop(event)" ondragover="allowDrop(event)"><a id='.$id.' draggable="true" ondragstart="drag(event)" href="task.php?task='.$title.'">'.$title.'</td>
+									<td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+									<td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+								</tr>';
+					}			
+					if($done == 1) {
+						 echo  '<tr><td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+									<td ondrop="drop(event)" ondragover="allowDrop(event)"><a id='.$id.' draggable="true" ondragstart="drag(event)" href="task.php?task='.$title.'">'.$title.'</td>
+									<td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+								</tr>';
+					}
+					if($done == 2) {
+						 echo  '<tr><td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+									<td ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+									<td ondrop="drop(event)" ondragover="allowDrop(event)"><a id='.$id.' draggable="true" ondragstart="drag(event)" href="task.php?task='.$title.'">'.$title.'</td>
+								</tr>';
+					}
+				} ?>
+		</table>
 </body>
 </html>

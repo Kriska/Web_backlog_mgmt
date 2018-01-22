@@ -115,6 +115,18 @@
 			$dbh = null;
 		}
 		
+		public function find_dashboard_tasks() {
+			$dbh = new PDO("mysql:host=$this->host; dbname=$this->db; charset=utf8", $this->user, $this->pass);
+			
+			$stmt = $dbh->prepare("SELECT id, title, description, logHours, dueDate, done, priority from tasks");
+			$stmt->execute();
+			
+			$result = $stmt->fetchAll();
+		
+			return $result;
+			$dbh = null;
+		}
+		
 		public function find_task_by_name($taskName) {
 			$dbh = new PDO("mysql:host=$this->host; dbname=$this->db; charset=utf8", $this->user, $this->pass);
 			
@@ -146,6 +158,16 @@
 			
 			$stmt = $dbh->prepare("UPDATE tasks SET done = 2 WHERE title = :taskName");
 			$stmt->bindParam(':taskName', $taskName);
+			$stmt->execute();
+			
+			$dbh = null;
+		}
+		
+		public function complete_task_by_id($id) {
+			$dbh = new PDO("mysql:host=$this->host; dbname=$this->db; charset=utf8", $this->user, $this->pass);
+			
+			$stmt = $dbh->prepare("UPDATE tasks SET done = 2 WHERE id = :id");
+			$stmt->bindParam(':id', $id);
 			$stmt->execute();
 			
 			$dbh = null;

@@ -20,14 +20,14 @@ done int DEFAULT 0,
 priority varchar(2) DEFAULT 'S',
 
 PRIMARY KEY(id),
-FOREIGN KEY(creatorId) REFERENCES Users(id)
+FOREIGN KEY(creatorId) REFERENCES Users(id),
 FOREIGN KEY(assigneeId) REFERENCES Users(id));
 
 
 #insert users
 
-INSERT INTO Users(id, userName, password, role, email) VALUES(1,'Пенда', 'pass', 'D','penda@babamarta.com');
-INSERT INTO Users(id, userName, password, role, email) VALUES(2,'Пижо', 'pass', 'PO','pijo@mart.bg');
+INSERT INTO Users(id, userName, password, role, email) VALUES(1,'Penda', 'pass', 'D','penda@babamarta.com');
+INSERT INTO Users(id, userName, password, role, email) VALUES(2,'Pijo', 'pass', 'PO','pijo@mart.bg');
 
 
 #insert tasks
