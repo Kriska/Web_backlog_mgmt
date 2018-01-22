@@ -15,6 +15,7 @@
 		<a href="index.php">Начало</a>
 		<a class="active" href="profile.php">Профил</a>
 		<?php
+		include 'session.php';
 		if($userRole == 'PO') 
 			echo '<a href="create.php">Създай задача</a>';
 		else
