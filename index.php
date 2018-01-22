@@ -37,7 +37,7 @@
 	</form>
 </div>
 
-		<table id="results">
+		<table id="results" class="dashboard">
 			<tr>
 				<th>Нестартирани</th>
 				<th>Започнати</th>

@@ -322,6 +322,11 @@ background-color: #ffeead;
 	margin-bottom: 20px
 }
 
+.dashboard {
+	table-layout: fixed;
+}
+
+
 
 
 
